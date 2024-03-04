@@ -10,7 +10,7 @@ fun main(){
 
         println(a + b)
     }
-    //soma()
+    soma()
 
     fun temperatura(){
         print("Digite o valor da temperatura em graus Cº: ")
@@ -18,7 +18,7 @@ fun main(){
 
         println(temp * 9 / 5 + 32)
     }
-    //temperatura()
+    temperatura()
 
     fun nomeIdade(){
         print("Informe seu nome: ")
@@ -28,7 +28,7 @@ fun main(){
 
         println("Olá $nome você tem $idade anos!")
     }
-    //nomeIdade()
+    nomeIdade()
 
     fun retangulo(){
         print("Informe a altura do triangulo: ")
@@ -39,7 +39,7 @@ fun main(){
 
         println("A área do retângulo é $area !")
     }
-    //retangulo()
+    retangulo()
 
     fun dizOla(){
         print("Informe seu nome: ")
@@ -47,7 +47,7 @@ fun main(){
 
         println("Olá, $nome!")
     }
-    //dizOla()
+    dizOla()
 
     fun calculadora(){
         print("Informe o primeiro número: ")
@@ -60,7 +60,7 @@ fun main(){
         println("Multiplicação: " + (a*b))
         println("Divisão: " + (a/b))
     }
-    //calculadora()
+    calculadora()
 
     fun media(){
         print("Informe a primeira nota: ")
@@ -74,7 +74,7 @@ fun main(){
 
         println("A media das notas é: $mediatotal")
     }
-    //media()
+    media()
 
     fun tabuada(){
         print("Informe um número: ")
