@@ -3,48 +3,48 @@
 
 select e.nome, count(d.nome_dep) as dependentes
 from empregado e
-left join dependente d on (e.rg = d.rg_resp)
+inner join dependente d on (e.rg = d.rg_resp)
 where e.rg = 10101010;
 
 -- b- Mostre o nome do responsável pelo dependente nascido em 27/12/86.
 
 select e.nome
 from empregado e
-left join dependente d on (e.rg = d.rg_resp)
+inner join dependente d on (e.rg = d.rg_resp)
 where d.datanasc = '1986-12-27';
 
 -- c- Mostre de qual departamento é o funcionário de código 3.
 
 select e.nome, d.nome as departamento
 from empregado_projeto ep
-left join empregado e on (ep.id_emp = e.id_emp)
-left join departamento_projeto dp on (ep.id_pro = dp.id_pro)
-left join departamento d on (dp.id_dep = d.id_dep)
+inner join empregado e on (ep.id_emp = e.id_emp)
+inner join departamento_projeto dp on (ep.id_pro = dp.id_pro)
+inner join departamento d on (dp.id_dep = d.id_dep)
 where ep.id_emp = 3;
 
 -- d- Mostre o nome e quantas horas o empregado de código 2 trabalhou.
 
 select e.nome, SUM(ep.horas) as total_horas
 from empregado_projeto ep
-left join empregado e on (ep.id_emp = e.id_emp)
-left join departamento_projeto dp on (ep.id_pro = dp.id_pro)
-left join departamento d on (dp.id_dep = d.id_dep)
+inner join empregado e on (ep.id_emp = e.id_emp)
+inner join departamento_projeto dp on (ep.id_pro = dp.id_pro)
+inner join departamento d on (dp.id_dep = d.id_dep)
 where ep.id_emp = 2;
 
 -- e- Selecione todos os funcionários que trabalham no projeto 5 exibindo seus nomes.
 
 select e.nome
 from empregado_projeto ep
-left join empregado e on (ep.id_emp = e.id_emp)
-left join departamento_projeto dp on (ep.id_pro = dp.id_pro)
-left join departamento d on (dp.id_dep = d.id_dep)
+inner join empregado e on (ep.id_emp = e.id_emp)
+inner join departamento_projeto dp on (ep.id_pro = dp.id_pro)
+inner join departamento d on (dp.id_dep = d.id_dep)
 where dp.id_pro = 5;
 
 -- f-  Mostre o nome e o salário do responsável pelo dependente Angelo.
 
 select e.nome, e.salario
 from empregado e
-left join dependente d on (e.rg = d.rg_resp)
+inner join dependente d on (e.rg = d.rg_resp)
 where d.nome_dep = "Angelo";
 
 -- g- Que dia da semana (em português) a dependente Fernanda nasceu?
@@ -59,10 +59,10 @@ where nome_dep = "Fernanda";
 
 select e.nome
 from empregado_projeto ep
-left join empregado e on (ep.id_emp = e.id_emp)
-left join departamento_projeto dp on (ep.id_pro = dp.id_pro)
-left join departamento d on (dp.id_dep = d.id_dep)
-left join projeto p on (dp.id_pro = p.id_pro)
+inner join empregado e on (ep.id_emp = e.id_emp)
+inner join departamento_projeto dp on (ep.id_pro = dp.id_pro)
+inner join departamento d on (dp.id_dep = d.id_dep)
+inner join projeto p on (dp.id_pro = p.id_pro)
 where p.localizacao = "LEM";
 
 -- i - Quantos anos o dependente Jorge tem?
@@ -75,5 +75,5 @@ where nome_dep = "Jorge";
 
 select e.nome
 from departamento d
-left join empregado e on (d.gerente = e.id_emp)
+inner join empregado e on (d.gerente = e.id_emp)
 where d.id_dep = 3;

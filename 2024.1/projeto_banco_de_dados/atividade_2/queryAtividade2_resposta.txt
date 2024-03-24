@@ -1,0 +1,69 @@
+-- liste o nome dos alunos da turma2:
+
+select p.nome
+from pessoa p
+inner join aluno_turma at on (p.id = at.id_aluno)
+where at.id_turma = 2;
+
+-- liste a turma e os alunos da faculdade2:
+
+select p.nome, t.descricao
+from pessoa p
+inner join aluno_turma atu on (p.id = atu.id_aluno)
+inner join turma t on (atu.id_turma = t.id)
+inner join instituicao i on (t.id_instituicao = i.id)
+where i.nome = "faculdade2";
+
+-- liste os professores que naceram antes de 1980:
+
+select p.nome
+from professor pro
+inner join pessoa p on (pro.id_pessoa = p.id)
+where year(p.data_nasc) < 1980;
+
+-- liste as pessoas que tem o sobrenome silva:
+
+select p.nome
+from pessoa p
+where p.nome like "%Silva%";
+
+-- Mostre a matricula do aluno Tony
+
+select a.matricula
+from pessoa p
+inner join aluno a on (p.id = a.id_pessoa)
+where p.nome like "Tony%";
+
+-- liste as pessoas que tem o cpf que se inicia com o número 7:
+
+select p.cpf
+from pessoa p
+where p.cpf like "7%";
+
+-- mostre o total de alunos e professores:
+
+select count(a.id_pessoa) as alunos, count(pro.id_pessoa) as professores
+from pessoa p
+left join professor pro on (p.id = pro.id_pessoa)
+left join aluno a on (p.id = a.id_pessoa);
+
+-- mostre o nome do último professor contratado:
+
+select p.nome, pro.matricula
+from professor pro
+inner join pessoa p on (pro.id_pessoa = p.id)
+order by matricula desc limit 1;
+
+-- mostre o nome do primeiro professor contratado:
+
+select p.nome, pro.matricula
+from professor pro
+inner join pessoa p on (pro.id_pessoa = p.id)
+order by matricula asc limit 1;
+
+-- liste os alunos matriculados em 2021:
+
+select p.nome
+from aluno a
+inner join pessoa p on (p.id = a.id_pessoa)
+where ano_inicio = 2021;
